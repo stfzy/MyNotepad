@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CInternetControl">
+      <UniqueIdentifier>{b63a1391-231f-4392-91d7-b0073e6ae316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CServerComm">
+      <UniqueIdentifier>{fedc6a7f-7a30-4c45-a1c7-f896e81a47ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="comm">
+      <UniqueIdentifier>{46a8e2ea-49d8-48f4-8669-31aa4ab36d41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\MyNotepad.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\MyNotepad.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyNotepad.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyNotepadDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InternetControl.h">
+      <Filter>CInternetControl</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerComm.h">
+      <Filter>CServerComm</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogRegister.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="impl.h">
+      <Filter>comm</Filter>
+    </ClInclude>
+    <ClInclude Include="commfunc.h">
+      <Filter>comm</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyNotepad.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyNotepadDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InternetControl.cpp">
+      <Filter>CInternetControl</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerComm.cpp">
+      <Filter>CServerComm</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogRegister.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="commfunc.cpp">
+      <Filter>comm</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MyNotepad.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
