@@ -8,9 +8,13 @@
 #include "afxdialogex.h"
 #include "InternetControl.h"
 #include "DialogRegister.h"
+#include "commfunc.h"
+#include "ServerComm.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+
+CServerComm g_cServerComm;
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -159,88 +163,20 @@ HCURSOR CMyNotepadDlg::OnQueryDragIcon()
 }
 
 
-wchar_t* Utf82Unicode(const char* utf, size_t *unicode_number)  
-{  
-	if(!utf || !strlen(utf))  
-	{  
-		*unicode_number = 0;  
-		return NULL;  
-	}  
-	int dwUnicodeLen = MultiByteToWideChar(CP_UTF8,0,utf,-1,NULL,0);  
-	size_t num = dwUnicodeLen*sizeof(wchar_t);  
-	wchar_t *pwText = (wchar_t*)malloc(num);  
-	memset(pwText,0,num);  
-	MultiByteToWideChar(CP_UTF8,0,utf,-1,pwText,dwUnicodeLen);  
-	*unicode_number = dwUnicodeLen - 1;  
-	return pwText;  
-}  
-
- #pragma region 登录服务器 
-
-bool LoginServer(PTCHAR pUname,PTCHAR pPass)
-{ 
-#define TEST_FILE_PATH "d:\\netdata.txt"
-#define CONFIG_NAME _T("MyNotePad.config")
- 
-	CInternetControl cic;
-	PTCHAR pBuffer =NULL; 
-	TCHAR szLoginUrl[1024] = {0},szServerUrl[1024] = {0},szLocalPath[1024];
-	GetCurrentDirectory(1024,szLocalPath);
-	if(GetLastError() != 0)
-		return false;
-	
-	_tcscat_s(szLocalPath,1024,L"\\");
-	_tcscat_s(szLocalPath,1024,CONFIG_NAME);
-
-	GetPrivateProfileString(_T("config"),_T("serverurl"),_T(""),szServerUrl,1024,szLocalPath);
-	
-	if(GetLastError() != 0)
-		return false;
-	 
-
-	_stprintf_s(szLoginUrl,1024,_T("%s?bkname=%s&bkpassword=%s&bkimageurl="),szServerUrl,pUname,pPass);
-  
-	if(cic.InternetReadData(szLoginUrl,&pBuffer))
-	{
-		FILE * pf; 
-		fopen_s(&pf,TEST_FILE_PATH,"ab+"); 
-		fwrite(pBuffer,strlen((char*)(pBuffer)),1,pf); 
-		fclose(pf);
-		delete[] pBuffer;
-		//TODO: 判断账号密码的正确性
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-#pragma endregion 登录服务器
-
 
 void CMyNotepadDlg::OnBnClickedButton1()
-{  
-	UpdateData(TRUE);
-	CInternetControl cic;
-// 	PTCHAR pData = NULL;
-// 	PTCHAR pTest = _T("http://192.168.1.105:8080/MyBook/loginController/register.do?bkname=&bkpassword=&bkemail=&bkimageurl=");
-// 	cic.InternetReadData(_T("http://www.qq.com"),&pData );
-// 	cic.InternetClearData(pData);
-  
-	if(LoginServer(edit_uname.GetBuffer(),edit_passwd.GetBuffer()))
+{
+	UpdateData(TRUE); 
+	int iErroCode;
+	TCHAR szErroMsg[MAX_PATH];
+	if(g_cServerComm.LoginServer(edit_uname.GetBuffer(),edit_passwd.GetBuffer(), iErroCode, szErroMsg))
 	{
-		//TODO: 登录成功
-		MessageBox(_T("登录成功"));
-
+		MessageBox(szErroMsg);
 	}
 	else
 	{
-		//TODO: 登录失败 
-		MessageBox(_T("登录失败！错误代码：1\r\n请检查账号密码是否正确！"),_T("登录失败!"),MB_OK|MB_ICONERROR);
-
+		MessageBox(szErroMsg); 
 	}
-	 
-	
 }
 
 

@@ -8,9 +8,12 @@ public:
 	CServerComm(void);
 	~CServerComm(void);
 
-	//登录注册
-	bool LoginServer(PTCHAR ptszUsername,PTCHAR ptszPassword);
-	bool RegesiterUser(PTCHAR ptszUsername,PTCHAR ptszPassword,PTCHAR ptszPasswordReplay,PTCHAR ptszEmail);
+	 
+	 
+	//用户登录 
+	bool LoginServer(PTCHAR ptszUsername,PTCHAR ptszPassword, int& iErroCode, PTCHAR erroMsg);
+	//用户注册
+	bool RegesiterUser(PTCHAR ptszUsername,PTCHAR ptszPassword,PTCHAR ptszPasswordReplay,PTCHAR ptszEmail, int& iErroCode, PTCHAR erroMsg);
 	
 	//安全密码管理
 	bool GetStartPass();
@@ -57,3 +60,4 @@ public:
 	bool SetRemindRoutine();
 };
 
+extern CServerComm g_cServerComm;

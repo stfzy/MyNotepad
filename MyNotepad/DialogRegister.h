@@ -20,4 +20,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedButton1();
+	CString edit_uname;
+	CString edit_pass;
+	CString edit_repass;
+	CString edit_email;
 };

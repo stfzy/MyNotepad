@@ -22,6 +22,12 @@
     <Filter Include="comm">
       <UniqueIdentifier>{46a8e2ea-49d8-48f4-8669-31aa4ab36d41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="regiDlg">
+      <UniqueIdentifier>{65f0da44-51ea-4156-8205-4174ac9761e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="loginDlg">
+      <UniqueIdentifier>{206ab826-354a-4c05-a67f-916d9875749d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -35,9 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyNotepad.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="MyNotepadDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -55,21 +58,21 @@
     <ClInclude Include="ServerComm.h">
       <Filter>CServerComm</Filter>
     </ClInclude>
-    <ClInclude Include="DialogRegister.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="impl.h">
       <Filter>comm</Filter>
     </ClInclude>
     <ClInclude Include="commfunc.h">
       <Filter>comm</Filter>
     </ClInclude>
+    <ClInclude Include="DialogRegister.h">
+      <Filter>regiDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="MyNotepadDlg.h">
+      <Filter>loginDlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyNotepad.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MyNotepadDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -81,11 +84,17 @@
     <ClCompile Include="ServerComm.cpp">
       <Filter>CServerComm</Filter>
     </ClCompile>
-    <ClCompile Include="DialogRegister.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="commfunc.cpp">
       <Filter>comm</Filter>
+    </ClCompile>
+    <ClCompile Include="md5\MD5.cpp">
+      <Filter>comm</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogRegister.cpp">
+      <Filter>regiDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="MyNotepadDlg.cpp">
+      <Filter>loginDlg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

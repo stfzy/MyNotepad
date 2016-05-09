@@ -6,6 +6,7 @@
 #include "DialogRegister.h"
 #include "afxdialogex.h"
 #include "MyNotepadDlg.h"
+#include "ServerComm.h"
 
 // CDialogRegister 对话框
 
@@ -13,9 +14,13 @@ IMPLEMENT_DYNAMIC(CDialogRegister, CDialogEx)
 
 CDialogRegister::CDialogRegister(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CDialogRegister::IDD, pParent)
+	, edit_uname(_T(""))
+	, edit_pass(_T(""))
+	, edit_repass(_T(""))
+	, edit_email(_T(""))
 {
 	CMyNotepadDlg * DengluDlg = (CMyNotepadDlg *)pParent;
-	MessageBox(DengluDlg->edit_uname);
+	 
 
 }
 
@@ -26,6 +31,10 @@ CDialogRegister::~CDialogRegister()
 void CDialogRegister::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, edit_uname);
+	DDX_Text(pDX, IDC_EDIT2, edit_pass);
+	DDX_Text(pDX, IDC_EDIT3, edit_repass);
+	DDX_Text(pDX, IDC_EDIT4, edit_email);
 }
 
 
@@ -39,7 +48,16 @@ END_MESSAGE_MAP()
 
 void CDialogRegister::OnBnClickedButton1()
 {
-	// TODO: 在此添加控件通知处理程序代码
-
-	MessageBox(_T("注册成功！"));
+	UpdateData(TRUE);
+	int iErroCode;
+	TCHAR szErroMsg[MAX_PATH];
+	if(g_cServerComm.RegesiterUser(edit_uname.GetBuffer(),edit_pass.GetBuffer(),edit_repass.GetBuffer(),edit_email.GetBuffer(),iErroCode,szErroMsg))
+	{
+		MessageBox(szErroMsg);
+	}
+	else
+	{ 
+		MessageBox(szErroMsg);
+	}
+	 
 }

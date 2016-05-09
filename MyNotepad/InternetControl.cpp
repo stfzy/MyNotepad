@@ -34,7 +34,7 @@ CInternetControl::~CInternetControl(void)
 BOOL CInternetControl::InternetReadData(IN PTCHAR szUrl,OUT PTCHAR* szResult)
 {
 	BOOL bRet = FALSE;
-	TCHAR szHeaders[] =_T("Accept: */*/r/nAccept-Language: zh-cn/r/nAccept-Encoding: gzip, deflate/r/nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; MyIE2; .NET CLR 1.1.4322)");
+	TCHAR szHeaders[] =_T("");//_T("Accept: Accept-Language: zh-cn/r/nAccept-Encoding: gzip, deflate/r/nUser-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; MyIE2; .NET CLR 1.1.4322)");
 	HINTERNET hInterOpenUrl = InternetOpenUrl(m_hInter,szUrl,szHeaders,_tcslen(szHeaders),INTERNET_FLAG_DONT_CACHE | INTERNET_FLAG_PRAGMA_NOCACHE | INTERNET_FLAG_RELOAD,0);//打开网址 get数据
   
 	if(hInterOpenUrl)//如果成功
