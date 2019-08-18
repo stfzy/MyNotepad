@@ -1,2 +1,0 @@
-<title>Hello</title>
-<a href="http://www.baidu.com"\>
